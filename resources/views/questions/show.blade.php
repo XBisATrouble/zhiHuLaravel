@@ -67,9 +67,9 @@
                         <form action="/questions/{{$question->id}}/answer" method="post">
                             {!! csrf_field() !!}
                             <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
-                                <script id="container" name="body" style="height:120px;" type="text/plain">
-                                    {!! old('body')  !!}
-                                </script>
+                                {{--<script id="container" name="body" style="height:120px;" type="text/plain">--}}
+                                    {{--{!! old('body')  !!}--}}
+                                {{--</script>--}}
                                 @if ($errors->has('body'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('body') }}</strong>

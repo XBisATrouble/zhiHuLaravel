@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Channels\SendCloudChannel;
+use App\Mailer\UserMailer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -45,16 +46,7 @@ class NewUserFollowNotification extends Notification
 
     public function toSendcloud($notifiable)
     {
-        $data = [
-            'url' => 'http://zhihu-app.dev:8080/home',
-            'name'=>Auth::guard('api')->user()->name,
-        ];
-        $template = new SendCloudTemplate('zhihu_password_reset', $data);
-
-        Mail::raw($template, function ($message) use ($notifiable){
-            $message->from('XBisATrouble@gmail.com', 'Zhihu');
-            $message->to($notifiable->email);
-        });
+        (new UserMailer())->followNotifyEmail($notifiable->email);
     }
 
     /**

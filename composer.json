@@ -6,14 +6,14 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "barryvdh/laravel-ide-helper": "^2.3",
         "caouecs/laravel-lang": "~3.0",
         "guzzlehttp/guzzle": "~6.0",
         "laracasts/flash": "2.0.*",
         "laravel/framework": "5.3.*",
         "naux/sendcloud": "1.1.*",
         "overtrue/laravel-filesystem-qiniu": "^0.0.1",
-        "overtrue/laravel-ueditor": "~1.0",
-        "barryvdh/laravel-ide-helper":"1.11.*"
+        "overtrue/laravel-ueditor": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -23,6 +23,9 @@
         "symfony/dom-crawler": "3.1.*"
     },
     "autoload": {
+        "files":[
+            "app/Support/helpers.php"
+        ],
         "classmap": [
             "database"
         ],
